@@ -46,7 +46,7 @@ def delete_city(city_id):
         abort(404)
     city.delete()
     storage.save()
-    return jsonify({})
+    return jsonify({}), 200
 
 
 # Creates a City: POST /api/v1/states/<state_id>/cities

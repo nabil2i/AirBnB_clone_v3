@@ -40,7 +40,7 @@ def delete_state(state_id):
         abort(404)
     state.delete()
     storage.save()
-    return jsonify({})
+    return jsonify({}), 200
 
 
 # Creates a State: POST /api/v1/states
