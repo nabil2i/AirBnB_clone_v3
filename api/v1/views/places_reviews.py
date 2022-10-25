@@ -16,6 +16,7 @@ from models.place import Place
                  methods=['GET'], strict_slashes=False)
 def return_reviews(place_id):
     """return list of reveiws of a place"""
+    place = storage.get("Place", place_id)
     if place is None:
         abort(404)
     reviews = []
