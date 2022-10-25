@@ -77,7 +77,7 @@ def create_place(city_id):
         return make_response(jsonify({'error': 'Missing name'}), 400)
     # create a new place with keyword args
     args_json['city_id'] = city_id
-    place = Place(**kwargs)
+    place = Place(**args_json)
     place.save()
     return make_response(jsonify(place.to_dict()), 201)
 
@@ -85,7 +85,7 @@ def create_place(city_id):
 # Updates a Place object: PUT /api/v1/places/<place_id>
 @app_views.route("/places/<string:place_id>",
                  methods=['PUT'], strict_slashes=False)
-def update_place(state_id):
+def update_place(place_id):
     """update a place"""
     # get the place to update
     place = storage.get("Place", place_id)
