@@ -155,9 +155,7 @@ No known bugs at this time.
 
 ## Authors
 Norris Selorm Bedzo - [GitHub](https://github.com/bedzon94)
-
 Nabil Affo - [Github](https://github.com/nabil2i) / [Twitter](https://twitter.com/thenabverse)
-
 
 Second part of Airbnb: Joann Vuong
 ## License
