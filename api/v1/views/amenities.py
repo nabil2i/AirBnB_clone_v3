@@ -8,7 +8,7 @@ from models import storage
 from models.amenity import Amenity
 
 
-# RRetrieves the list of all Amenity objects: GET /api/v1/amenities
+# Retrieves the list of all Amenity objects: GET /api/v1/amenities
 @app_views.route("/amenities",
                  methods=['GET'], strict_slashes=False)
 def return_amenities():
@@ -57,7 +57,7 @@ def create_amenity():
     if 'name' not in request.get_json():
         return make_response(jsonify({'error': 'Missing name'}), 400)
     # create a new amenity with json kwargs
-    amenity = Amenity(**args_json)
+    amenity = Amenity(**request.get_json())
     amenity.save()
     return make_response(jsonify(amenity.to_dict()), 201)
 
