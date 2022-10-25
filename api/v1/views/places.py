@@ -5,7 +5,7 @@ from api.v1.views import app_views
 from flask import Flask, Blueprint, jsonify
 from flask import make_response, abort, request
 from models import storage
-from models.state import Place
+from models.place import Place
 from models.city import City
 from models.user import User
 
