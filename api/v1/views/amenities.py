@@ -5,17 +5,15 @@ from api.v1.views import app_views
 from flask import Flask, Blueprint, jsonify
 from flask import make_response, abort, request
 from models import storage
-from models.state import State
-from models.state import City
 from models.amenity import Amenity
 
 
 # RRetrieves the list of all Amenity objects: GET /api/v1/amenities
 @app_views.route("/amenities",
                  methods=['GET'], strict_slashes=False)
-def return_amneties():
-    """return list of amneties"""
-    amneties = []
+def return_amenities():
+    """return list of amenities"""
+    amenities = []
     for amenity in storage.all("Amenity").values:
         # to_dict() to retrieve an object into a valid JSON
         amenities.append(amenity.to_dict())
@@ -59,7 +57,7 @@ def create_amenity():
     if 'name' not in request.get_json():
         return make_response(jsonify({'error': 'Missing name'}), 400)
     # create a new amenity with json kwargs
-    amenty = Amenity(**args_json)
+    amenity = Amenity(**args_json)
     amenity.save()
     return make_response(jsonify(amenity.to_dict()), 201)
 
