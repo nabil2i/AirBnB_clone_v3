@@ -5,8 +5,8 @@ from api.v1.views import app_views
 from flask import Flask, Blueprint, jsonify
 from flask import make_response, abort, request
 from models import storage
-from models.state import States
-from models.state import Cities
+from models.state import State
+from models.state import Citie
 
 
 # Retrieves the list of all City objects of a
