@@ -81,5 +81,5 @@ def update_user(user_id):
         # update and ignore id, email, created_at, updated_at
         if key not in ['id', 'email', 'created_at', 'updated_at']:
             setattr(user, key, value)
-    city.save()
+    user.save()
     return jsonify(user.to_dict())
