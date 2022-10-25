@@ -10,8 +10,7 @@ from models.city import City
 from models.user import User
 
 
-
-# Retrieves the list of all Place objects of a 
+# Retrieves the list of all Place objects of a
 # City: GET /api/v1/cities/<city_id>/places
 @app_views.route("/cities/<string:city_id>/places",
                  methods=['GET'], strict_slashes=False)
@@ -97,7 +96,7 @@ def update_place(place_id):
         return make_response(jsonify({'error': 'Not a JSON'}), 400)
     for key, value in request.get_json().items():
         # update and ignore id, user_id, city_id, created_at, updated_at
-        if key not in ['id', 'user_id', 'city_id','created_at', 'updated_at']:
+        if key not in ['id', 'user_id', 'city_id', 'created_at', 'updated_at']:
             setattr(place, key, value)
     place.save()
     return jsonify(place.to_dict())
