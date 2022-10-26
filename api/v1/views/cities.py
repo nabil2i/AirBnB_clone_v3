@@ -60,7 +60,7 @@ def create_city(state_id):
     # make sure prerequisites are met
     # request.get_json transforms the HTTP body request to a dictionary
     # request to a dictionary
-    if not request.get_json:
+    if not request.get_json():
         return make_response(jsonify({'error': 'Not a JSON'}), 400)
     if 'name' not in request.get_json():
         return make_response(jsonify({'error': 'Missing name'}), 400)
