@@ -71,7 +71,8 @@ test_db_storage.py'])
 # tests for v3
 class TestDBStorage(unittest.TestCase):
     """Test DBstorage"""
-    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db',
+                     "not testing db storage")
     def test_get(self):
         """Test if get returns an object or not"""
         new_state = State(name="mystate")
@@ -84,7 +85,8 @@ class TestDBStorage(unittest.TestCase):
         self.assertIs(new_user, models.storage.get("User", new_user.id))
         self.assertIs(None, models.storage.get("User", "sdogiuzo"))
 
-    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db',
+                     "not testing db storage")
     def test_count(self):
         """Test if count returns the number of objects"""
         first = models.storage.count()
