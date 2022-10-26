@@ -90,7 +90,7 @@ class TestDBStorage(unittest.TestCase):
     def test_count(self):
         """Test if count returns the number of objects"""
         first = models.storage.count()
-        self.assertEqual(models.storage.count("shdgkshj", 0))
+        self.assertEqual(models.storage.count("shdgkshj"), 0)
         new_state = State(name="mystate")
         new_state.save()
         new_user = User(email="userbla@gmail.com", password="password")
