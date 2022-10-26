@@ -67,7 +67,7 @@ def create_review(place_id):
         return make_response(jsonify({'error': 'Not a JSON'}), 400)
     if 'user_id' not in args_json:
         return make_response(jsonify({'error': 'Missing user_id'}), 400)
-
+    #get the user who made the review
     user = storage.get("User", args_json['user_id'])
     if user is None:
         abort(404)
@@ -75,8 +75,6 @@ def create_review(place_id):
     if 'text' not in args_json:
         return make_response(jsonify({'error': 'Missing text'}), 400)
 
-    if 'name' not in args_json:
-        return make_response(jsonify({'error': 'Missing name'}), 400)
     # create a new place with keyword args
     args_json['place_id'] = place_id
     review = Review(**args_json)
