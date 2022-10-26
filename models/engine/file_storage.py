@@ -85,7 +85,7 @@ class FileStorage:
         """count the number of objects in storage"""
         number = 0
         # if class is provided, counted only objects of the class
-        if cls is not None and type(cls) == str and cls in classes:
+        if type(cls) == str and cls in classes:
             number = len(self.all(cls))
         # if class is not provides, count objects all all classes
         elif cls is None:
